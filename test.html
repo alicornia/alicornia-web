@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/jimena.css" rel="stylesheet">
+    <link href="./css/crono.css" rel="stylesheet">
+    <script language = "javascript" src="./js/multiplicar.js"></script>
+    <script language = "javascript" src="./js/crono.js"></script>
+    <title>El juego de las tablas de multiplicar</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Menú</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Información</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Juegos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Tablas de multiplicar</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                </ul>
+              </li>
+             </ul>
+            </div>
+        </div>
+      </nav>
+      <br/><br/><br/><br/><br/>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            
+          </div>
+          <div class="col">
+            <h1 class="titulo">Multiplicator</h1>
+
+            <div class="card" style="width: 18rem;">
+                <img src="./img/lollipop.jpg" class="card-img-top" alt="..." >
+                <div class="card-body">
+                  <h5 class="card-title centered">¿Cuánto es...?</h5>
+                  <div class="card-text centered"> 
+                    <span id="numero1"></span> x <span id="numero2"></span> = <input id="resultado" type="text" size="3"/>
+                    <button type="button" class="btn btn-success" onclick="comprobarResultado()">Enviar</button>
+                  </div>
+                  
+                 
+                </div>
+                <div class="fst-italic alert centered fade show  alert-dismissible blink_me" id="mensaje" role="alert" visible="false">
+                   
+                </div>
+              </div>
+        
+          </div>
+          <div class="col">
+            <div class="cronometro">
+                <div id="hms"></div>
+                <!--div class="boton start"></div>        
+                <div class="boton stop"></div>
+                <div class="boton reiniciar"></div-->
+            </div>
+            <h1 id="puntuacion" class="arcoiris">0</h1>
+          </div>
+        </div>
+      </div>
+    
+    
+
+    <!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script-->
+</body>
+</html>
