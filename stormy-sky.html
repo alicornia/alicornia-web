@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <script>
+            let rowCounter = -1;
+            let numStitchesInNeedle = 3;
+            let rowInstructionsSetup = [{rownum:0,inst: "K3", inc: 0},  
+                        {rownum:1,inst:"sl1wyif, K2", inc: 0}, 
+                        {rownum:2,inst: "sl1wyif, k2",inc:0},
+                        {rownum:3,inst: "sl1wyif, k1fb, k1", inc:1}, 
+                        {rownum: 4, inst: "sl1wyif, K3", inc: 0},
+                        {rownum:5,inst: "sl1wyif, k until last 2, k1fb, k1", inc:1},
+                        {rownum:6,inst: "sl1wyif, K until the end", inc: 0},
+                        {rownum:7,inst: "sl1wyif, k until last 2, k1fb, k1", inc:1},
+                        {rownum:8,inst: "sl1wyif, K until the end", inc: 0},
+                        {rownum:9,inst: "sl1wyif, k until last 2, k1fb, k1", inc:1},
+                        {rownum:10,inst: "sl1wyif, K until the end", inc: 0},
+                        {rownum:11,inst: "sl1wyif, k until last 2, k1fb, k1", inc:1},
+                        {rownum:12,inst: "sl1wyif, K until the end", inc: 0},
+                        {rownum:13,inst: "sl1wyif, k until last 2, k1fb, k1", inc:1},
+                        {rownum:14,inst: "sl1wyif, K until the end", inc: 0},
+                        {rownum:15,inst: "sl1wyif, k until last 2, k1fb, k1", inc:1},
+                        {rownum:16,inst: "sl1wyif, K until the end", inc: 0}];
+            let rowInstructionsBody = [{rownum:1,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:2,inst:"sl1wyif, k until the end of the row",inc:0},
+            {rownum:3,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:4,inst:"sl1wyif, k until the end of the row",inc:0},
+            {rownum:5,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:6,inst:"sl1wyif, k until the end of the row",inc:0},
+            {rownum:7,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:8,inst:"sl1wyif, k until the end of the row",inc:0},
+            {rownum:1,inst:"sl1wyif, (k1, yo2) until last 2sts, k1fb, k1",inc:1},
+            {rownum:2,inst:"sl1wyif, p across, dropping yarn overs off the needle until last 1 stitch, k1",inc:0},
+            {rownum:1,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:2,inst:"sl1wyif, k until end of the row ",inc:0},
+            {rownum:3,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:4,inst:"sl1wyif, k until end of the row ",inc:0},
+            {rownum:5,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:6,inst:"sl1wyif, k until end of the row ",inc:0},
+            {rownum:7,inst:"sl1wyif, k until last 2sts, k1fb, k1",inc:1},
+            {rownum:8,inst:"sl1wyif, p until last 1 stitch, k1",inc:0},
+            {rownum:1,inst:"sl1wyif, (k2tog, yo) until last 2sts, k1fb, k1",inc:1},
+            {rownum:2,inst: "sl1wyif, p until last 1 stitch, k1",inc:0},
+            {rownum:3,inst: "sl1wyif, (k2tog, yo) until last 3sts, k1, k1fb, k1", inc:1},
+            {rownum:4,inst:"sl1wyif, p until last 1 stitch, k1",inc:0},
+            {rownum:5,inst:"sl1wyif, k1, (yo, k2tog) until last 3sts, yo, k3",inc:1},
+            {rownum:6,inst:"sl1wyif, p until last 1 stitch, k1",inc:0}];
+
+            function advance() {
+                rowCounter++;
+                      
+                if(rowCounter < 17) { //setup rounds
+                    let nextRow =rowInstructionsSetup[rowCounter];
+                    document.getElementById("nextInst").innerHTML = nextRow.inst;
+                    numStitchesInNeedle += nextRow.inc;
+                } else{ //body, all rounds {
+                    let nextRow =rowInstructionsBody[(rowCounter - 17) % 24];
+                    document.getElementById("nextInst").innerHTML = nextRow.inst;
+                    numStitchesInNeedle += nextRow.inc;
+                } 
+                document.getElementById("rowNumber").innerHTML = rowCounter;
+                document.getElementById("numStitches").innerHTML = numStitchesInNeedle;
+                document.getElementById("side").innerHTML = rowCounter % 2 == 0 ? "WS": "RS";
+
+            }
+
+            function setInitial() {
+                let val = document.getElementById("initialRow").value;
+                console.log(val);
+                rowCounter = -1;
+                numStitchesInNeedle = 3;
+                for(let i=-1; i<val; i++)
+                    advance();
+            }
+        </script>
+    </head>
+    <body>
+
+        <br/> Initial row: <input id="initialRow" value="0"/> 
+        <button onclick="setInitial()">Set initial</button>
+        <p> <b>Row:</b> <span id="rowNumber">0 </span></p>
+         <p>   <b>Side of the labour:</b> <span id="side"> None</span>
+        </p>
+        <p> <b>Next Instruction: </b><span id="nextInst">CO 3tst</span></p>
+        <p> <b>Num. Stitches in needlw (After):</b> <span id="numStitches"> 3 </span>  </p>
+        <button onclick="advance()">Advance</button>
+    </body>
+</html>
