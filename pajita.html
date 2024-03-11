@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley</title>
+    <script src="js/jimena.js"></script>
+    <link rel="stylesheet" href="css/jimena.css">
+</head>
+
+<body>
+    <h1>Jimena's first class of programing</h1>
+    <div id="myContainer">
+        <div id="myAnimation">
+            <img src="images/callada.jpg" id="cara">
+            <img src="images/boca-cerrada.jpg" id="imagen">
+            <img src="images/boca-abierta.png" id="imagen-abierta">
+        </div>
+    </div>
+    <audio id="voz" preload="auto" onplay="moverBoca()">
+        <source src="audio/audio1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
+    <button onclick="hablar()">Press here!</button>
+</body>
+
+</html>
